@@ -2991,7 +2991,7 @@ class Solution(collections.abc.Mapping):
     padInterval = state["LdsBlockSizePerPadA"] // bpeAB
     if padInterval != 0:
       ldsNumElementsA = int((state["_DepthUA"] * state["MacroTileA"]) / padInterval * (padInterval + state["LdsPadA"]))
-    ldsNumElementsAlignedA = roundUpToNearestMultiple(ldsNumElementsA, ldsAlign)
+    ldsNumElementsAlignedA = 0
 
     if state["UnrollMajorLDSB"]:
       ldsNumElementsB = (state["_DepthUB"] + state["LdsPadB"]) * state["MacroTileB"]
