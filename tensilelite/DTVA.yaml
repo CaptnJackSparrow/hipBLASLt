@@ -1,0 +1,615 @@
+GlobalParameters:
+  # MinimumRequiredVersion: 4.14.0
+  # ForceRedoBenchmarkProblems: False
+  # ForceRedoLibraryLogic: False
+  # ForceRedoLibraryClient: False
+  MergeFiles: False
+  # ForceGenerateKernel: True
+  # CMakeBuildType: Debug
+  NumElementsToValidate: 0
+  # ValidationPrintValids: True
+  # ValidationMaxToPrint: 256
+  NumWarmups: 100
+  NumBenchmarks: 1000
+  SyncsPerBenchmark: 1
+  EnqueuesPerSync: 1000
+  # MinFlopsPerSync: 10737418240
+  # MaxEnqueuesPerSync: 10
+  SleepPercent: 0
+  # PrintSolutionRejectionReason: True
+  PrintWinnersOnly: True
+  DataInitTypeA: 12
+  DataInitTypeB: 13
+  # DataInitTypeC: 0
+  # DataInitTypeD: 3
+  DataInitTypeBeta: 0
+  DataInitTypeAlpha: 1
+  DataInitTypeBias: 0
+  DataInitTypeScaleAlphaVec: 1
+  CSVExportWinner: 1
+  CSVMergeSameProblemID: 1
+  Device: 3
+  # CpuThreads: 1
+  # ShortNames: 1
+  MinKForGSU: 1
+  MaxWorkspaceSize: 3355443200
+  # BoundsCheck: 4
+  MaxFileName: 256
+  # KernelTime: True
+  # CEqualD: True
+  # PristineOnGPU: False
+  # HardwareMonitor: False
+  # PrintCodeCommands: True
+  # PrintLevel: 2
+  # UseUserArgs: True
+  # RotatingBufferSize: 512
+
+BenchmarkProblems:
+  ########################################
+  # NN - standard
+  ########################################
+  -
+    - # ProblemType
+      OperationType: GEMM
+      DataTypeA: f8
+      DataTypeB: h
+      UseScaleAB: True
+
+      DataType: h
+      DestDataType: h
+      ComputeDataType: s
+      HighPrecisionAccumulate: True
+      TransposeA: 0
+      TransposeB: 0
+      UseBeta: True
+      Batched: True
+
+      UseBias: True
+      Activation: True
+      UseScaleAlphaVec: True
+
+      # GroupedGemm: True
+      # SupportUserArgs: True
+    - # BenchmarkProblemSizeGroup - Standard
+      CustomKernels: 
+        [
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_WGM1_MO2_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_WGM1_MO2_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_WGM8_MO2_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_WGM8_MO2_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB8_AF0EM4_WGM1_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB8_AF0EM4_WGM1_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB8_AF0EM4_WGM8_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB8_AF0EM4_WGM8_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x32_MI16x16x1_GRVWA4_GRVWB4_WGM1_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x32_MI16x16x1_GRVWA4_GRVWB4_WGM1_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x32_MI16x16x1_GRVWA4_GRVWB4_WGM8_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x32_MI16x16x1_GRVWA4_GRVWB4_WGM8_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_WGM1_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_WGM1_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_WGM8_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_WGM8_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x320x32_MI16x16x1_GRVWA8_GRVWB4_AF0EM8",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x352x32_MI16x16x1_GRVWA8_GRVWB4_AF0EM8",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x384x32_MI16x16x1_GRVWA8_GRVWB4_AF0EM8",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x384x32_MI16x16x1_GRVWA8_GRVWB4_AF0EM8_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HSS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x384x32_MI16x16x1_GRVWA8_GRVWB4_AF0EM8_Trail",
+
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_WGM1_MO2_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_WGM1_MO2_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_WGM8_MO2_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_WGM8_MO2_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB8_AF0EM4_WGM1_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB8_AF0EM4_WGM1_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB8_AF0EM4_WGM8_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB8_AF0EM4_WGM8_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x32_MI16x16x1_GRVWA4_GRVWB4_WGM1_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x32_MI16x16x1_GRVWA4_GRVWB4_WGM1_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x32_MI16x16x1_GRVWA4_GRVWB4_WGM8_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x32_MI16x16x1_GRVWA4_GRVWB4_WGM8_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_WGM1_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_WGM1_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_WGM8_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_WGM8_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x320x32_MI16x16x1_GRVWA8_GRVWB4_AF0EM8",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x352x32_MI16x16x1_GRVWA8_GRVWB4_AF0EM8",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x384x32_MI16x16x1_GRVWA8_GRVWB4_AF0EM8",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x384x32_MI16x16x1_GRVWA8_GRVWB4_AF0EM8_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_GG_AS_SAB_SAV_UserArgs_MT256x384x32_MI16x16x1_GRVWA8_GRVWB4_AF0EM8_Trail",
+
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_SU8_WGM1_MO2_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_SU8_WGM1_MO2_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_SU8_WGM8_MO2_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_SU8_WGM8_MO2_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM1_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM1_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM8_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM8_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM1_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM1_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM8_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM8_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x320x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM4",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x320x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x320x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x352x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM8",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x352x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM8_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x384x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM8",
+          # "Custom_Cijk_Ailk_Bljk_HSS_BH_Bias_GG_AS_SAV_UserArgs_MT256x384x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM8_SwapAB",
+
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_SU8_WGM1_MO2_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_SU8_WGM1_MO2_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_SU8_WGM8_MO2_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x144x32_MI16x16x1_GRVWA4_GRVWB2_AF0EM4_SU8_WGM8_MO2_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM1_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM1_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM8_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x224x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM8_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM1_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM1_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM8_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x256x64_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_SU8_WGM8_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x320x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM4",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x320x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_DTVA",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x320x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM4_DTVA_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x352x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM8",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x352x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM8_SwapAB",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x384x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM8",
+          # "Custom_Cijk_Ailk_Bljk_HHS_BH_Bias_GG_AS_SAV_UserArgs_MT256x384x32_MI16x16x1_GRVWA4_GRVWB4_AF0EM8_SwapAB",
+
+          # "Custom_Cijk_Ailk_Bljk_HF8_HHS_BH_SAB_MT16x128x128_MI16x16x1_GRVWA8_GRVWB8_DTVB",
+          # "Custom_Cijk_Ailk_Bljk_HF8_HHS_BH_SAB_MT16x128x128_MI16x16x1_GRVWA8_GRVWB16_2PGR2_DTVB",
+
+          "Custom_Cijk_Ailk_Bljk_F8H_HHS_BH_Bias_AS_SAB_SAV_MT512x16x32_MI16x16x1_GRVWA8_GRVWB2_DTVA",
+        ]
+      InitialSolutionParameters:
+      BenchmarkCommonParameters:
+        - KernelLanguage: ["Assembly"]
+      ForkParameters:
+        - MatrixInstruction:
+          # - [ 4,  4, 4,16, 16,   1, 1,  1,1 ] # 64x4 (No 1LDSB1)
+          # - [ 4,  4, 4,16, 16,   1, 1,  2,1 ] # 128x4 (No 1LDSB1)
+          # - [ 4,  4, 4,16, 16,   1, 1,  4,1 ] # 256x4 (No 1LDSB1)
+          # - [ 4,  4, 4,16, 16,   2, 1,  4,1 ] # 512x4 (No 1LDSB1)
+          # - [ 4,  4, 4,16, 16,   1, 1,  2,2 ] # 128x8 (No 1LDSB1)
+          # - [ 4,  4, 4,16, 16,   2, 1,  2,2 ] # 512x8 (No 1LDSB1)
+
+          # - [16, 16,16, 1,  1,   1, 1,  1,1 ] # 16x16 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   1, 1,  2,1 ] # 32x16 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   1, 1,  4,1 ] # 64x16 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   2, 1,  4,1 ] # 128x16
+          # - [16, 16,16, 1,  1,   3, 1,  4,1 ] # 192x16
+          # - [16, 16,16, 1,  1,   4, 1,  4,1 ] # 256x16
+          # - [16, 16,16, 1,  1,   1, 1,  1,2 ] # 16x32 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   1, 1,  2,2 ] # 32x32 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   2, 1,  2,2 ] # 64x32 (4,1)
+          # - [16, 16,16, 1,  1,   3, 1,  2,2 ] # 96x32
+          # - [32, 32, 8, 1,  1,   1, 1,  4,1 ] # 128x32 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   5, 1,  2,2 ] # 160x32
+          # - [16, 16,16, 1,  1,   6, 1,  2,2 ] # 192x32 (4,1)
+          # - [16, 16,16, 1,  1,   7, 1,  2,2 ] # 224x32
+          # - [32, 32, 8, 1,  1,   2, 1,  4,1 ] # 256x32
+          # - [16, 16,16, 1,  1,   1, 3,  4,1 ] # 64x48
+          # - [16, 16,16, 1,  1,   2, 3,  4,1 ] # 128x48
+          # - [16, 16,16, 1,  1,   3, 3,  4,1 ] # 192x48
+          # - [16, 16,16, 1,  1,   4, 3,  4,1 ] # 256x48
+          # - [16, 16,16, 1,  1,   1, 1,  1,4 ] # 16x64 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   2, 1,  1,4 ] # 32x64 (2,2)
+          # - [16, 16,16, 1,  1,   3, 1,  1,4 ] # 48x64
+          # - [32, 32, 8, 1,  1,   1, 1,  2,2 ] # 64x64 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   5, 1,  1,4 ] # 80x64
+          # - [16, 16,16, 1,  1,   6, 1,  1,4 ] # 96x64 (2,2)
+          # - [16, 16,16, 1,  1,   7, 1,  1,4 ] # 112x64
+          # - [32, 32, 8, 1,  1,   2, 1,  2,2 ] # 128x64 (4,1)
+          # - [16, 16,16, 1,  1,   9, 1,  1,4 ] # 144x64
+          # - [16, 16,16, 1,  1,  10, 1,  1,4 ] # 160x64 (2,2)
+          # - [16, 16,16, 1,  1,  11, 1,  1,4 ] # 176x64
+          # - [32, 32, 8, 1,  1,   3, 1,  2,2 ] # 192x64
+          # - [16, 16,16, 1,  1,  13, 1,  1,4 ] # 208x64
+          # - [16, 16,16, 1,  1,  14, 1,  1,4 ] # 224x64 (2,2)
+          # - [16, 16,16, 1,  1,  15, 1,  1,4 ] # 240x64
+          # - [32, 32, 8, 1,  1,   2, 2,  4,1 ] # 256x64
+          # - [16, 16,16, 1,  1,   1, 5,  4,1 ] # 64x80
+          # - [16, 16,16, 1,  1,   2, 5,  4,1 ] # 128x80
+          # - [16, 16,16, 1,  1,   3, 5,  4,1 ] # 192x80
+          # - [16, 16,16, 1,  1,   4, 5,  4,1 ] # 256x80
+          # - [16, 16,16, 1,  1,   1, 3,  2,2 ] # 32x96
+          # - [16, 16,16, 1,  1,   2, 3,  2,2 ] # 64x96 (4,1)
+          # - [16, 16,16, 1,  1,   3, 3,  2,2 ] # 96x96
+          # - [32, 32, 8, 1,  1,   1, 3,  4,1 ] # 128x96
+          # - [16, 16,16, 1,  1,   5, 3,  2,2 ] # 160x96
+          # - [16, 16,16, 1,  1,   6, 3,  2,2 ] # 192x96 (4,1)
+          # - [16, 16,16, 1,  1,   7, 3,  2,2 ] # 224x96
+          # - [32, 32, 8, 1,  1,   2, 3,  4,1 ] # 256x96
+          # - [16, 16,16, 1,  1,   1, 7,  4,1 ] # 64x112
+          # - [16, 16,16, 1,  1,   2, 7,  4,1 ] # 128x112
+          # - [16, 16,16, 1,  1,   3, 7,  4,1 ] # 192x112
+          # - [16, 16,16, 1,  1,   4, 7,  4,1 ] # 256x112
+          # - [16, 16,16, 1,  1,   1, 2,  1,4 ] # 16x128
+          # - [32, 32, 8, 1,  1,   1, 1,  1,4 ] # 32x128 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   3, 2,  1,4 ] # 48x128
+          # - [32, 32, 8, 1,  1,   2, 1,  1,4 ] # 64x128 (2,2)
+          # - [16, 16,16, 1,  1,   5, 2,  1,4 ] # 80x128
+          # - [32, 32, 8, 1,  1,   3, 1,  1,4 ] # 96x128
+          # - [16, 16,16, 1,  1,   7, 2,  1,4 ] # 112x128
+          # - [32, 32, 8, 1,  1,   2, 2,  2,2 ] # 128x128 (4,1)
+          # - [16, 16,16, 1,  1,   4, 4,  2,2 ] # 128x128 (4,1)
+          # - [16, 16,16, 1,  1,   9, 2,  1,4 ] # 144x128
+          # - [32, 32, 8, 1,  1,   5, 1,  1,4 ] # 160x128
+          # - [16, 16,16, 1,  1,  11, 2,  1,4 ] # 176x128
+          # - [32, 32, 8, 1,  1,   6, 1,  1,4 ] # 192x128 (2,2)
+          # - [16, 16,16, 1,  1,  13, 2,  1,4 ] # 208x128
+          # - [32, 32, 8, 1,  1,   7, 1,  1,4 ] # 224x128
+          # - [16, 16,16, 1,  1,  15, 2,  1,4 ] # 240x128
+          # - [32, 32, 8, 1,  1,   4, 2,  2,2 ] # 256x128 (4,1)
+          # - [16, 16,16, 1,  1,   1, 9,  4,1 ] # 64x144
+          # - [16, 16,16, 1,  1,   2, 9,  4,1 ] # 128x144
+          # - [16, 16,16, 1,  1,   3, 9,  4,1 ] # 192x144
+          # - [16, 16,16, 1,  1,   4, 9,  4,1 ] # 256x144 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   1, 5,  2,2 ] # 32x160
+          # - [16, 16,16, 1,  1,   2, 5,  2,2 ] # 64x160 (4,1)
+          # - [16, 16,16, 1,  1,   3, 5,  2,2 ] # 96x160
+          # - [32, 32, 8, 1,  1,   1, 5,  4,1 ] # 128x160
+          # - [16, 16,16, 1,  1,   5, 5,  2,2 ] # 160x160
+          # - [16, 16,16, 1,  1,   6, 5,  2,2 ] # 192x160 (4,1)
+          # - [16, 16,16, 1,  1,   7, 5,  2,2 ] # 224x160 (Occupancy 1)
+          # - [32, 32, 8, 1,  1,   2, 5,  4,1 ] # 256x160 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   1,11,  4,1 ] # 64x176
+          # - [16, 16,16, 1,  1,   2,11,  4,1 ] # 128x176
+          # - [16, 16,16, 1,  1,   3,11,  4,1 ] # 192x176 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   4,11,  4,1 ] # 256x176 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   1, 3,  1,4 ] # 16x192
+          # - [16, 16,16, 1,  1,   2, 3,  1,4 ] # 32x192 (2,2)
+          # - [16, 16,16, 1,  1,   3, 3,  1,4 ] # 48x192
+          # - [32, 32, 8, 1,  1,   1, 3,  2,2 ] # 64x192
+          # - [16, 16,16, 1,  1,   5, 3,  1,4 ] # 80x192
+          # - [16, 16,16, 1,  1,   6, 3,  1,4 ] # 96x192 (2,2)
+          # - [16, 16,16, 1,  1,   7, 3,  1,4 ] # 112x192
+          # - [32, 32, 8, 1,  1,   2, 3,  2,2 ] # 128x192 (4,1)
+          # - [16, 16,16, 1,  1,   9, 3,  1,4 ] # 144x192
+          # - [16, 16,16, 1,  1,  10, 3,  1,4 ] # 160x192 (2,2)
+          # - [16, 16,16, 1,  1,  11, 3,  1,4 ] # 176x192 (Occupancy 1)
+          # - [32, 32, 8, 1,  1,   3, 3,  2,2 ] # 192x192 (Occupancy 1)
+          # - [16, 16,16, 1,  1,  13, 3,  1,4 ] # 208x192 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   7, 6,  2,2 ] # 224x192 (Occupancy 1)
+          # - [16, 16,16, 1,  1,  15, 3,  1,4 ] # 240x192 (Occupancy 1)
+          # - [32, 32, 8, 1,  1,   4, 3,  2,2 ] # 256x192 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   1,13,  4,1 ] # 64x208
+          # - [16, 16,16, 1,  1,   2,13,  4,1 ] # 128x208
+          # - [16, 16,16, 1,  1,   3,13,  4,1 ] # 192x208 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   4,13,  4,1 ] # 256x208 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   1, 7,  2,2 ] # 32x224
+          # - [16, 16,16, 1,  1,   2, 7,  2,2 ] # 64x224 (4,1)
+          # - [16, 16,16, 1,  1,   3, 7,  2,2 ] # 96x224
+          # - [32, 32, 8, 1,  1,   1, 7,  4,1 ] # 128x224
+          # - [16, 16,16, 1,  1,   5, 7,  2,2 ] # 160x224 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   3,14,  4,1 ] # 192x224 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   7, 7,  2,2 ] # 224x224 (Occupancy 1)
+          # - [32, 32, 8, 1,  1,   2, 7,  4,1 ] # 256x224 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   1,15,  4,1 ] # 64x240
+          # - [16, 16,16, 1,  1,   2,15,  4,1 ] # 128x240
+          # - [16, 16,16, 1,  1,   3,15,  4,1 ] # 192x240 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   4,15,  4,1 ] # 256x240 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   1, 4,  1,4 ] # 16x256
+          # - [32, 32, 8, 1,  1,   1, 2,  1,4 ] # 32x256
+          # - [16, 16,16, 1,  1,   3, 4,  1,4 ] # 48x256
+          # - [32, 32, 8, 1,  1,   2, 2,  1,4 ] # 64x256 (2,2)
+          # - [16, 16,16, 1,  1,   5, 4,  1,4 ] # 80x256
+          # - [32, 32, 8, 1,  1,   3, 2,  1,4 ] # 96x256
+          # - [16, 16,16, 1,  1,   7, 4,  1,4 ] # 112x256
+          # - [32, 32, 8, 1,  1,   2, 4,  2,2 ] # 128x256 (4,1)
+          # - [16, 16,16, 1,  1,   9, 4,  1,4 ] # 144x256 (Occupancy 1)
+          # - [32, 32, 8, 1,  1,   5, 2,  1,4 ] # 160x256 (Occupancy 1)
+          # - [16, 16,16, 1,  1,  11, 4,  1,4 ] # 176x256 (Occupancy 1)
+          # - [32, 32, 8, 1,  1,   3, 4,  2,2 ] # 192x256 (Occupancy 1)
+          # - [16, 16,16, 1,  1,  13, 4,  1,4 ] # 208x256 (Occupancy 1)
+          # - [32, 32, 8, 1,  1,   7, 2,  1,4 ] # 224x256 (Occupancy 1)
+          # - [16, 16,16, 1,  1,  15, 4,  1,4 ] # 240x256 (Occupancy 1)
+          # - [32, 32, 8, 1,  1,   4, 4,  2,2 ] # 256x256 (Occupancy 1)
+
+          # - [16, 16,16, 1,  1,   1, 5,  1,4 ] # 16x320
+          # - [16, 16,16, 1,  1,   1, 6,  1,4 ] # 16x384
+          # - [16, 16,16, 1,  1,   1, 7,  1,4 ] # 16x448
+          # - [16, 16,16, 1,  1,   1, 8,  1,4 ] # 16x512
+          # - [16, 16,16, 1,  1,   5, 1,  4,1 ] # 320x16
+          # - [16, 16,16, 1,  1,   6, 1,  4,1 ] # 384x16
+          # - [16, 16,16, 1,  1,   7, 1,  4,1 ] # 448x16
+          # - [16, 16,16, 1,  1,   8, 1,  4,1 ] # 512x16
+
+          # - [16, 16,16, 1,  1,   2, 2,  4,1 ] # 128x32 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   4, 2,  4,1 ] # 256x32
+          # - [16, 16,16, 1,  1,   2, 2,  2,2 ] # 64x64 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   4, 2,  2,2 ] # 128x64 (4,1)
+          # - [16, 16,16, 1,  1,   6, 2,  2,2 ] # 192x64
+          # - [16, 16,16, 1,  1,   4, 4,  4,1 ] # 256x64
+          # - [16, 16,16, 1,  1,   2, 6,  4,1 ] # 128x96
+          # - [16, 16,16, 1,  1,   4, 6,  4,1 ] # 256x96
+          # - [16, 16,16, 1,  1,   2, 2,  1,4 ] # 32x128 (No 1LDSB1)
+          # - [16, 16,16, 1,  1,   4, 2,  1,4 ] # 64x128 (2,2)
+          # - [16, 16,16, 1,  1,   6, 2,  1,4 ] # 96x128
+          # - [16, 16,16, 1,  1,   4, 4,  2,2 ] # 128x128 (4,1)
+          # - [16, 16,16, 1,  1,  10, 2,  1,4 ] # 160x128
+          # - [16, 16,16, 1,  1,  12, 2,  1,4 ] # 192x128 (2,2)
+          # - [16, 16,16, 1,  1,  14, 2,  1,4 ] # 224x128
+          # - [16, 16,16, 1,  1,   8, 4,  2,2 ] # 256x128 (4,1)
+          # - [16, 16,16, 1,  1,   2,10,  4,1 ] # 128x160
+          # - [16, 16,16, 1,  1,   4,10,  4,1 ] # 256x160 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   2, 6,  2,2 ] # 64x192
+          # - [16, 16,16, 1,  1,   4, 6,  2,2 ] # 128x192 (4,1)
+          # - [16, 16,16, 1,  1,   6, 6,  2,2 ] # 192x192 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   8, 6,  2,2 ] # 256x192 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   2,14,  4,1 ] # 128x224
+          # - [16, 16,16, 1,  1,   4,14,  4,1 ] # 256x224 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   2, 4,  1,4 ] # 32x256
+          # - [16, 16,16, 1,  1,   4, 4,  1,4 ] # 64x256 (2,2)
+          # - [16, 16,16, 1,  1,   6, 4,  1,4 ] # 96x256
+          # - [16, 16,16, 1,  1,   4, 8,  2,2 ] # 128x256 (4,1)
+          # - [16, 16,16, 1,  1,  10, 4,  1,4 ] # 160x256 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   6, 8,  2,2 ] # 192x256 (Occupancy 1)
+          # - [16, 16,16, 1,  1,  14, 4,  1,4 ] # 224x256 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   8, 8,  2,2 ] # 256x256 (Occupancy 1)
+
+          # - [16, 16,16, 1,  1,   4, 9,  4,1 ] # 256x144 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   4,14,  4,1 ] # 256x224 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   4,16,  4,1 ] # 256x256 (Occupancy 1)
+          # - [16, 16,16, 1,  1,   8,10,  2,2 ] # 256x320 (4,1)
+          # - [16, 16,16, 1,  1,   4,20,  4,1 ] # 256x320 (4,1)
+          # - [16, 16,16, 1,  1,   8,11,  2,2 ] # 256x352 (4,1)
+          # - [16, 16,16, 1,  1,   4,22,  4,1 ] # 256x352 (4,1)
+          # - [16, 16,16, 1,  1,   8,12,  2,2 ] # 256x384 (4,1)
+
+          # - [16, 16,16, 1,  1,   1,1,  1,1 ] # 16x16 (4,1)
+          # - [16, 16,16, 1,  1,   1,2,  1,1 ] # 16x32 (4,1)
+          # - [16, 16,16, 1,  1,   1,3,  1,1 ] # 16x48 (4,1)
+          # - [16, 16,16, 1,  1,   1,4,  1,1 ] # 16x64 (4,1)
+          # - [16, 16,16, 1,  1,   1,5,  1,1 ] # 16x80 (4,1)
+          # - [16, 16,16, 1,  1,   1,6,  1,1 ] # 16x96 (4,1)
+          # - [16, 16,16, 1,  1,   1,7,  1,1 ] # 16x112 (4,1)
+          # - [16, 16,16, 1,  1,   1,8,  1,1 ] # 16x128 (4,1)
+          # - [16, 16,16, 1,  1,   1,9,  1,1 ] # 16x144 (4,1)
+          # - [16, 16,16, 1,  1,   1,10,  1,1 ] # 16x160 (4,1)
+          # - [16, 16,16, 1,  1,   1,11,  1,1 ] # 16x176 (4,1)
+          # - [16, 16,16, 1,  1,   1,12,  1,1 ] # 16x192 (4,1)
+          # - [16, 16,16, 1,  1,   1,1,  1,4 ] # 16x64 (4,1)
+          # - [16, 16,16, 1,  1,   1,2,  1,4 ] # 16x128 (4,1)
+          # - [16, 16,16, 1,  1,   1,3,  1,4 ] # 16x192
+          # - [16, 16,16, 1,  1,   1,4,  1,4 ] # 16x256
+          # - [16, 16,16, 1,  1,   1,5,  1,4 ] # 16x320
+          # - [16, 16,16, 1,  1,   1,6,  1,4 ] # 16x384
+          # - [16, 16,16, 1,  1,   1,7,  1,4 ] # 16x448
+          # - [16, 16,16, 1,  1,   1,8,  1,4 ] # 16x512
+
+          # - [16, 16,16, 1,  1,   1,1,  1,1 ] # 16x16
+          # - [16, 16,16, 1,  1,   1,1,  2,1 ] # 32x16
+          # - [16, 16,16, 1,  1,   1,1,  4,1 ] # 64x16
+          # - [16, 16,16, 1,  1,   2,1,  4,1 ] # 128x16
+          # - [16, 16,16, 1,  1,   3,1,  4,1 ] # 192x16
+          # - [16, 16,16, 1,  1,   4,1,  4,1 ] # 256x16
+          # - [16, 16,16, 1,  1,   5,1,  4,1 ] # 320x16
+          # - [16, 16,16, 1,  1,   6,1,  4,1 ] # 384x16
+          # - [16, 16,16, 1,  1,   7,1,  4,1 ] # 448x16
+          - [16, 16,16, 1,  1,   8,1,  4,1 ] # 512x16
+          # - [16, 16,16, 1,  1,   9,1,  4,1 ] # 576x16
+          # - [16, 16,16, 1,  1,  10,1,  4,1 ] # 640x16
+          # - [16, 16,16, 1,  1,  11,1,  4,1 ] # 704x16
+          # - [16, 16,16, 1,  1,  12,1,  4,1 ] # 768x16
+          # - [16, 16,16, 1,  1,  13,1,  4,1 ] # 832x16
+          # - [16, 16,16, 1,  1,  14,1,  4,1 ] # 896x16
+          # - [16, 16,16, 1,  1,  15,1,  4,1 ] # 960x16
+          # - [16, 16,16, 1,  1,  16,1,  4,1 ] #1024x16
+          # - [16, 16,16, 1,  1,   2,1,  2,2 ] # 64x32
+          # - [16, 16,16, 1,  1,   3,1,  2,2 ] # 96x32
+          # - [16, 16,16, 1,  1,   4,1,  2,2 ] # 128x32
+          # - [16, 16,16, 1,  1,   5,1,  2,2 ] # 160x32
+          # - [16, 16,16, 1,  1,   6,1,  2,2 ] # 192x32
+          # - [16, 16,16, 1,  1,   7,1,  2,2 ] # 224x32
+          # - [16, 16,16, 1,  1,   8,1,  2,2 ] # 256x32
+          # - [16, 16,16, 1,  1,   9,1,  2,2 ] # 288x32
+          # - [16, 16,16, 1,  1,  10,1,  2,2 ] # 320x32
+          # - [16, 16,16, 1,  1,  11,1,  2,2 ] # 352x32
+          # - [16, 16,16, 1,  1,  12,1,  2,2 ] # 384x32
+          # - [16, 16,16, 1,  1,  13,1,  2,2 ] # 416x32
+          # - [16, 16,16, 1,  1,  14,1,  2,2 ] # 448x32
+          # - [16, 16,16, 1,  1,  15,1,  2,2 ] # 480x32
+          # - [16, 16,16, 1,  1,  16,1,  2,2 ] # 512x32
+          # - [16, 16,16, 1,  1,  17,1,  2,2 ] # 544x32
+          # - [16, 16,16, 1,  1,  18,1,  2,2 ] # 576x32
+          # - [16, 16,16, 1,  1,  19,1,  2,2 ] # 608x32
+          # - [16, 16,16, 1,  1,  20,1,  2,2 ] # 640x32
+          # - [16, 16,16, 1,  1,  21,1,  2,2 ] # 672x32
+          # - [16, 16,16, 1,  1,  22,1,  2,2 ] # 704x32
+          # - [16, 16,16, 1,  1,  23,1,  2,2 ] # 736x32
+          # - [16, 16,16, 1,  1,  24,1,  2,2 ] # 768x32
+          # - [16, 16,16, 1,  1,  25,1,  2,2 ] # 800x32
+          # - [16, 16,16, 1,  1,  26,1,  2,2 ] # 832x32
+          # - [16, 16,16, 1,  1,  27,1,  2,2 ] # 864x32
+          # - [16, 16,16, 1,  1,  28,1,  2,2 ] # 896x32
+          # - [16, 16,16, 1,  1,  29,1,  2,2 ] # 928x32
+          # - [16, 16,16, 1,  1,  30,1,  2,2 ] # 960x32
+          # - [16, 16,16, 1,  1,  31,1,  2,2 ] # 992x32
+          # - [16, 16,16, 1,  1,  32,1,  2,2 ] #1024x32
+
+          # - [16, 16,16, 1,  1,   1,2,  1,2 ] # 16x64 (4,1)
+          # - [16, 16,16, 1,  1,   1,3,  1,2 ] # 16x96 (4,1)
+          # - [16, 16,16, 1,  1,   1,2,  1,4 ] # 16x128 (4,1)
+          # - [16, 16,16, 1,  1,   1,3,  1,4 ] # 16x192 (4,1)
+
+        - AssertFree0ElementMultiple: [8]
+        # - AssertFree1ElementMultiple: [16]
+        # - AssertSummationElementMultiple: [32]
+        - PrefetchGlobalRead: [2]
+        - PrefetchLocalRead: [1]
+        - DepthU: [32]
+        - VectorWidthA: [-1]
+        - VectorWidthB: [-1]
+        - GlobalReadVectorWidthA: [8]
+        - GlobalReadVectorWidthB: [-1]
+        - LocalReadVectorWidth: [-1]
+        - TransposeLDS: [1]
+        - LdsBlockSizePerPadA: [-1]
+        - LdsBlockSizePerPadB: [-1]
+        - LdsPadA: [-1]
+        - LdsPadB: [-1]
+        - StaggerU: [8]
+        # - StaggerUStride: [256,512]
+        # - WorkGroupMapping: [1]
+        # - StaggerUMapping: [1]
+        # - WaveSeparateGlobalReadA: [1]
+        # - WaveSeparateGlobalReadB: [2]
+        # - MaxOccupancy: [1]
+        - 1LDSBuffer: [-1]
+        - GlobalSplitU: [16]
+        # - GlobalSplitUAlgorithm: ["MultipleBuffer","MultipleBufferSingleKernel"]
+        - GlobalSplitUAlgorithm: ["MultipleBuffer"]
+        - GlobalReadPerMfma: [1]
+        - LocalWritePerMfma: [-1]
+        - StoreRemapVectorWidth: [-1]
+        - StoreVectorWidth: [-1]
+        - SourceSwap: [1]
+        # - NumElementsPerBatchStore: [16]
+        # - StorePriorityOpt: [0]
+        # - GroupLoadStore: [1]
+        # - StoreSyncOpt: [0,2,4,8,12]
+        # - MIArchVgpr: [1]
+        # - NonTemporalA: [0,3]
+        # - NonTemporalB: [1]
+        # - NonTemporalC: [3]
+        # - NonTemporalD: [1]
+        # - NonTemporal: [0,1,2,3]
+        - ClusterLocalRead: [1]
+        # - ActivationFuncCall: [0]
+        # - WorkGroupMappingXCC: [1,2,4,6,8,16,32]
+        # - PreloadKernArgs: [1]
+        # - NumLoadsCoalescedA: [1,4]
+        # - UseSgprForGRO: [1]
+        # - DirectToVgprA: [1]
+      BenchmarkJoinParameters:
+      BenchmarkFinalParameters:
+        - ProblemSizes:
+          # - Exact: [2048, 0, 1, 2048]
+          # - Exact: [2048, 1, 1, 2048]
+          # - Exact: [2048, 1, 1, 2048]
+          # - Exact: [2048, 0, 1, 2048]
+          # - Exact: [2048, 1, 1, 2048]
+          # - Exact: [2048, 0, 1, 2048]
+          # - Exact: [2048, 1, 1, 2048]
+          # - Exact: [2048, 0, 1, 2048]
+          # - Exact: [2048, 0, 1, 2048]
+          # - Exact: [2048, 0, 1, 2048]
+          # - Exact: [2048, 0, 1, 2048]
+          # - Exact: [2048, 0, 1, 2048]
+          # - Exact: [2048, 0, 1, 2048]
+          # - Exact: [2048, 0, 1, 2048]
+          # - Exact: [2048, 0, 1, 2048]
+          # - Exact: [2048, 0, 1, 2048]
+
+          # - Exact: [32768, 2, 1, 32768]
+          # - Exact: [32768, 3, 1, 32768]
+          # - Exact: [32768, 7, 1, 32768]
+          # - Exact: [32768, 6, 1, 32768]
+          # - Exact: [32768, 8, 1, 32768]
+          # - Exact: [32768, 7, 1, 32768]
+          # - Exact: [32768, 4, 1, 32768]
+          # - Exact: [32768, 4, 1, 32768]
+          # - Exact: [32768, 1, 1, 32768]
+          # - Exact: [32768, 1, 1, 32768]
+          # - Exact: [32768, 6, 1, 32768]
+          # - Exact: [32768, 3, 1, 32768]
+          # - Exact: [32768, 2, 1, 32768]
+          # - Exact: [32768, 2, 1, 32768]
+          # - Exact: [32768, 3, 1, 32768]
+          # - Exact: [32768, 5, 1, 32768]
+
+          # - Exact: [32768, 323, 1, 8192]
+          # - Exact: [32768, 327, 1, 8192]
+          # - Exact: [32768, 326, 1, 8192]
+          # - Exact: [32768, 301, 1, 8192]
+          # - Exact: [32768, 334, 1, 8192]
+          # - Exact: [32768, 346, 1, 8192]
+          # - Exact: [32768, 359, 1, 8192]
+          # - Exact: [32768, 345, 1, 8192]
+          # - Exact: [32768, 299, 1, 8192]
+          # - Exact: [32768, 356, 1, 8192]
+          # - Exact: [32768, 365, 1, 8192]
+          # - Exact: [32768, 320, 1, 8192]
+          # - Exact: [32768, 322, 1, 8192]
+          # - Exact: [32768, 327, 1, 8192]
+          # - Exact: [32768, 378, 1, 8192]
+          # - Exact: [32768, 312, 1, 8192]
+
+          # - Exact: [4864, 4096, 1, 2048]
+          # - Exact: [4864, 4096, 1, 4096]
+          # - Exact: [4864, 4096, 1, 8192]
+          # - Exact: [4864, 4096, 1, 16384]
+
+          # - Exact: [256, 256, 1, 256]
+          # - Exact: [240, 256, 1, 256]
+          # - Exact: [272, 256, 1, 256]
+          # - Exact: [256, 255, 1, 256]
+          # - Exact: [256, 257, 1, 256]
+          # - Exact: [256, 383, 1, 256]
+          # - Exact: [256, 384, 1, 256]
+          # - Exact: [256, 385, 1, 256]
+          # - Exact: [256, 351, 1, 256]
+          # - Exact: [256, 352, 1, 256]
+          # - Exact: [256, 353, 1, 256]
+          # - Exact: [256, 319, 1, 256]
+          # - Exact: [256, 320, 1, 256]
+          # - Exact: [256, 321, 1, 256]
+          # - Exact: [256, 704, 1, 256]
+          # - Exact: [256, 736, 1, 256]
+
+          # - Exact: [256, 512, 1, 255]
+          # - Exact: [256, 768, 1, 257]
+
+          # - Exact: [2048, 2048, 1, 1024]
+          # - Exact: [2048, 2048, 1, 8192]
+          # - Exact: [2048, 2048, 1, 65536]
+          # - Exact: [2048, 8192, 1, 1024]
+          # - Exact: [2048, 8192, 1, 8192]
+          # - Exact: [2048, 8192, 1, 65536]
+          # - Exact: [8192, 2048, 1, 1024]
+          # - Exact: [8192, 2048, 1, 8192]
+          # - Exact: [8192, 2048, 1, 65536]
+          # - Exact: [8192, 8192, 1, 1024]
+          # - Exact: [8192, 8192, 1, 8192]
+          # - Exact: [8192, 8192, 1, 65536]
+
+          # - Exact: [16, 8192, 1, 128]
+          # - Exact: [16, 8192, 1, 256]
+          # - Exact: [16, 8192, 1, 384]
+          # - Exact: [16, 8192, 1, 512]
+          # - Exact: [16, 8192, 1, 65536]
+          # - Exact: [16, 8192, 1, 65536,-1,-1,-1,65664]
+
+          # - Exact: [16, 16, 1, 1024]
+          # - Exact: [16, 16, 1, 8192]
+          # - Exact: [16, 16, 1, 65536]
+          # - Exact: [2048, 16, 1, 1024]
+          # - Exact: [2048, 16, 1, 8192]
+          # - Exact: [2048, 16, 1, 65536]
+          # - Exact: [8192, 16, 1, 1024]
+          # - Exact: [8192, 16, 1, 8192]
+          - Exact: [8192, 16, 1, 65536]
+          # - Exact: [2048, 16, 1, 16384]
+          # - Exact: [2048, 32, 1, 16384]
+          # - Exact: [4096, 16, 1, 16384]
+          # - Exact: [4096, 32, 1, 16384]
+          # - Exact: [16384, 16, 1, 2048]
+          # - Exact: [16384, 32, 1, 2048]
+          # - Exact: [16384, 16, 1, 4096]
+          # - Exact: [16384, 32, 1, 4096]
+
+        - BiasTypeArgs: ['s']
+        - ActivationArgs:
+          - [Enum: none]
+          # - [Enum: Relu]
+          # - [Enum: Gelu]
+
+LibraryLogic:
+    ScheduleName: "aquavanjaram"
+    DeviceNames: ["Device 0049", "Device 0050"]
+    ArchitectureName: "gfx942"
+    # LibraryType: "FreeSize"
+
+# LibraryClient:
